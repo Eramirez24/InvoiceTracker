@@ -2,7 +2,7 @@
 {
     public class Invoices
     {
-        public int InvoiceId { get; set; }
+        public int Id { get; set; }
         public string CustomerName { get; set; } = null!;
         public int CustomerPhoneNumber { get; set; }
         public Employee Employee { get; set; } = null!;

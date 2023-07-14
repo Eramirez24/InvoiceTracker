@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 //This is a path to the database file
-builder.Services.AddDbContext<InvoicesDbContext>(o => o.UseSqlite("filename=Data/Datbase/Invoices.db"));
+builder.Services.AddDbContext<InvoicesDbContext>(o => o.UseSqlite("filename=Data/DataBase/Invoices.db"));
 
 var app = builder.Build();
 
