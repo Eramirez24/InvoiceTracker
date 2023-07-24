@@ -1,16 +1,27 @@
 ﻿using InvoiceTracker.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace InvoiceTracker.Data
+namespace InvoiceTracker.Data;
+
+public class InvoicesDbContext : DbContext
 {
-    public class InvoicesDbContext : DbContext
+    public DbSet<Invoice> Invoices { get; set; }  
+
+
+    public InvoicesDbContext(DbContextOptions options): base (options)
     {
-
-        public InvoicesDbContext(DbContextOptions options): base (options)
-        {
-        }
-
-        public DbSet<Invoices> Invoices { get; set; } = null!;
-        public DbSet<Employee> Employee { get; set; } = null!;
+        
     }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.UseSqlite("Data Source=./Data/DataBase/Invoices.db;");
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Invoice>().ToTable("Invoice");
+    }
+
+
 }

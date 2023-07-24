@@ -1,5 +1,7 @@
 using InvoiceTracker.Data;
+using InvoiceTracker.Models;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,3 +26,5 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 app.Run();
+
+

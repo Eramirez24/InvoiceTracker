@@ -3,24 +3,28 @@ using InvoiceTracker.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Routing.Matching;
+using Microsoft.EntityFrameworkCore;
 
-namespace InvoiceTracker.Pages
+namespace InvoiceTracker.Pages 
 {
     public class IndexModel : PageModel
     {
         private readonly InvoicesDbContext _Context;
+        public List<Invoice> Invoices { get; set; } = new List<Invoice>();
 
-        public IndexModel(InvoicesDbContext Context)
-        {
-            _Context = Context;
-        }
+
+        public IndexModel(InvoicesDbContext Context) => _Context = Context;
+        
 
         //Handler Method- Get method is the method that request information from a source
-        public void OnGet()
+        public async void OnGet()
         {
-            Invoices = _Context.Invoices;
+             
+            Invoices = await _Context.Invoices
+                //.OrderByDescending(i => i.Id)
+                .ToListAsync();
         }
 
-        public IEnumerable<Invoices> Invoices { get; set; }
+     
     }
 }

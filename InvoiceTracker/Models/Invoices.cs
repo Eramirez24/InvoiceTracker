@@ -1,12 +1,19 @@
-﻿namespace InvoiceTracker.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace InvoiceTracker.Models;
+
+public class Invoice
 {
-    public class Invoices
-    {
-        public int Id { get; set; }
-        public string CustomerName { get; set; } = null!;
-        public int CustomerPhoneNumber { get; set; }
-        public Employee Employee { get; set; } = null!;
-        public string PartDesc { get; set; } = null!;
-        public DateTime Created { get; set; }
-    }
+    public int Id { get; set; }
+    [Required]
+    [StringLength(100)]
+    public string? CustomerName { get; set; } 
+    public int CustomerPhoneNumber { get; set; }
+    public string? Email { get; set; } 
+    [Required]
+    [StringLength(500)]
+    public string? PartDesc { get; set; } 
+    public DateTime Created { get; set; }
+    public DateTime? Completed { get; set; }
 }
+

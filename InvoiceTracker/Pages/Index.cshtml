@@ -5,11 +5,49 @@
 }
 
 <div class="text-center">
-    <button asp-page="/Invoices/New">Add Invoices</button>
+    
+
+    <h1>Invoices</h1>
 
     @if(Model.Invoices.Count() == 0)
     {
         <p>No Invoices Available </p>
     }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Customer Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                    <th>Part Desc</th>
+                    <th>Created Time</th>
+                    <th>Completed Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var i in Model.Invoices)
+                {
+                    <tr>
+                        <td>@i.CustomerName</td>
+                        <td>@i.CustomerPhoneNumber</td>
+                        <td>@i.Email</td>
+                        <td>@i.PartDesc</td>
+                        <td>@i.Created</td>
 
+                        @if (@i.Completed != null )
+                        
+                        {
+                            <td>@i.Completed</td>
+                        }
+                        else
+                        {
+                            <td>In Progress</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 </div>

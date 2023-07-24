@@ -1,12 +1,30 @@
+using InvoiceTracker.Data;
+using InvoiceTracker.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using SQLitePCL;
 
 namespace InvoiceTracker.Pages.Invoices
 {
     public class NewModel : PageModel
     {
-        public void OnGet()
+        private readonly InvoicesDbContext _context;
+
+        public NewModel(InvoicesDbContext context) => _context = context;
+
+        public async Task<IActionResult> OnPostAsync()
         {
+            
+            Invoice.Created = DateTime.Now;
+            await _context.Invoices.AddAsync(Invoice);
+            await _context.SaveChangesAsync();
+
+            return RedirectToPage("/Index");
         }
+
+        [BindProperty]
+        public  Invoice Invoice { get; set; }
     }
+
+    //PokeDexEntry editedEntry = _context.PokeDexEntries.FromSql($"SELECT * FROM PokeDexEntries WHERE Id = {AddOrEditEntry.Id} LIMIT 1").Single();
 }
