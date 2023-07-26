@@ -12,10 +12,12 @@
         <div class="form-group">
             <label asp-for="Invoice.CustomerPhoneNumber" class="form-label">Customer Phone Number</label>
             <input asp-for="Invoice.CustomerPhoneNumber" class="form-control">
+            <span asp-validation-for="Invoice.CustomerPhoneNumber" class="text text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Invoice.Email" class="form-label">Employee Name</label>
+            <label asp-for="Invoice.Email" class="form-label">Email</label>
             <input asp-for="Invoice.Email" class="form-control">
+            <span asp-validation-for="Invoice.Email" class="text text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="Invoice.PartDesc" class="form-label">Parts Description</label>

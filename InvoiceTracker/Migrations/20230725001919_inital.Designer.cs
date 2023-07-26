@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InvoiceTracker.Migrations
 {
     [DbContext(typeof(InvoicesDbContext))]
-    [Migration("20230724004538_inital")]
+    [Migration("20230725001919_inital")]
     partial class inital
     {
         /// <inheritdoc />

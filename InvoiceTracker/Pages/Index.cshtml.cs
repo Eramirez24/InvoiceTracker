@@ -14,17 +14,17 @@ namespace InvoiceTracker.Pages
 
 
         public IndexModel(InvoicesDbContext Context) => _Context = Context;
-        
+
 
         //Handler Method- Get method is the method that request information from a source
-        public async void OnGet()
+        public async void OnGet() 
         {
-             
-            Invoices = await _Context.Invoices
-                //.OrderByDescending(i => i.Id)
+
+            Invoices = await _Context.Invoices.FromSql($"SELECT * FROM Invoice")
                 .ToListAsync();
         }
 
      
     }
+    
 }

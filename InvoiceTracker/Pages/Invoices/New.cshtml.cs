@@ -14,6 +14,10 @@ namespace InvoiceTracker.Pages.Invoices
 
         public async Task<IActionResult> OnPostAsync()
         {
+            if (!ModelState.IsValid)
+            { 
+                return Page();
+            }
             
             Invoice.Created = DateTime.Now;
             await _context.Invoices.AddAsync(Invoice);
@@ -26,5 +30,5 @@ namespace InvoiceTracker.Pages.Invoices
         public  Invoice Invoice { get; set; }
     }
 
-    //PokeDexEntry editedEntry = _context.PokeDexEntries.FromSql($"SELECT * FROM PokeDexEntries WHERE Id = {AddOrEditEntry.Id} LIMIT 1").Single();
+    
 }
