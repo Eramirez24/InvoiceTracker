@@ -6,20 +6,20 @@ public class Invoice
 {
     public int Id { get; set; }
 
-    [Required]
+    [Required(ErrorMessage = "Please Enter Customer Name")]
     [StringLength(100)]
     public string? CustomerName { get; set; }
 
-    [Required]
-    [RegularExpression(@"^[0-9]+$")]
+    [Required(ErrorMessage = "Please Enter A Phone Number")]
+    [RegularExpression(@"^[0-9]+$", ErrorMessage = "Please Enter A Valid Phone Number")]
     [StringLength(10)]
     public string? CustomerPhoneNumber { get; set; }
 
-    [Required]
-    [RegularExpression(@"^[A-Za-z0-9]+@[A-Za-z]+\.[a-zA-Z][a-zA-Z][a-zA-Z]$")]
+    [Required(ErrorMessage = "Please Enter A Email Address")]
+    [RegularExpression(@"^[A-Za-z0-9_.+-]+@[A-Za-z]+\.[a-zA-Z][a-zA-Z][a-zA-Z]$", ErrorMessage = "Please Enter A Valid Email Address")]
     public string? Email { get; set; } 
 
-    [Required]
+    [Required(ErrorMessage = "Please Enter A Parts Description")]
     [StringLength(500)]
     public string? PartDesc { get; set; } 
 

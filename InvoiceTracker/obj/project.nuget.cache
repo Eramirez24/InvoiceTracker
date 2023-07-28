@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "f99oCfaKmafywPeMZ2aaecnNnpxivMcAQrOneVSMXyNya4UxH76M2fXXuXLEV9m4E9XKlsuZnsfZ4lJLgnHEHg==",
+  "dgSpecHash": "99QPnuO6pXeJ0SOr1a0gm5gLtBVOu8l37FK5Lrf/Y/UjXJqyGDZPv3igOGvGZKuPG3U6NghuAcruvkv2UlxVDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ernes\\source\\repos\\InvoiceTracker\\InvoiceTracker\\InvoiceTracker.csproj",
+  "projectFilePath": "C:\\Users\\ernes\\source\\repos\\Invoice.Tracker\\InvoiceTracker\\InvoiceTracker.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ernes\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\ernes\\.nuget\\packages\\microsoft.data.sqlite.core\\7.0.9\\microsoft.data.sqlite.core.7.0.9.nupkg.sha512",
